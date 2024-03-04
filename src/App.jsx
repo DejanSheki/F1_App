@@ -6,8 +6,9 @@ function App() {
 
   return (
     <main>
-      {/* <Circuits /> */}
-      <DriversStandings />
+      <div className="main">
+        <DriversStandings />
+      </div>
     </main>
   )
 }
