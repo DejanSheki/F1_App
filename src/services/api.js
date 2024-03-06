@@ -24,10 +24,8 @@ const apiData = () => {
         const data = await result.data.response;
         console.log(data);
         setCircuits(data);
-        // setIsLoading(false);
       } catch (error) {
         setError(error.message);
-        // setIsLoading(false);
       } finally {
         setIsLoading(false);
       }
@@ -40,10 +38,8 @@ const apiData = () => {
         const data = await result.data.response;
         console.log(data);
         setDriversStandings(data);
-        // setIsLoading(false);
       } catch (error) {
         setError(error.messagge);
-        // setIsLoading(false);
       } finally {
         setIsLoading(false);
       }

@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import './App.css';
 
 import Nav from './components/Nav';
 import Circuits from './components/Circuits';
 import DriversStandings from './components/DriversStandings';
+import MainPage from './components/MainPage';
 
 function App() {
 
@@ -15,21 +18,21 @@ function App() {
     const mouseMove = (e) => {
       setMousePosition({ x: e.clientX, y: e.clientY })
     }
-    window.addEventListener('mousemove', mouseMove);
+    document.addEventListener('mousemove', mouseMove);
 
     return () => {
-      window.removeEventListener('mousemove', mouseMove);
+      document.removeEventListener('mousemove', mouseMove);
     }
   }, []);
 
   const variants = {
     default: {
-      x: mousePosition.x - 16,
-      y: mousePosition.y - 16
+      x: mousePosition.x - 25,
+      y: mousePosition.y - 25,
     },
     text: {
-      x: mousePosition.x - 16,
-      y: mousePosition.y - 16,
+      x: mousePosition.x,
+      y: mousePosition.y,
       cursor: 'pointer',
       width: 0
     }
@@ -39,17 +42,19 @@ function App() {
   const textLeave = () => setCursorVariant('default');
 
   return (
-    <div className="main">
+    <Router className="main">
       <Nav textEnter={textEnter} textLeave={textLeave} />
-      <main>
-        <DriversStandings />
-      </main>
+      <Routes>
+        <Route path='/' element={<MainPage />} />
+        <Route path='/driversStandings' element={<DriversStandings />} />
+        <Route path='/circuits' element={<Circuits />} />
+      </Routes>
       <motion.div
         className='cursor'
         variants={variants}
         animate={cursorVariant}
       />
-    </div>
+    </Router>
   )
 }
 

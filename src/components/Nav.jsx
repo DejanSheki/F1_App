@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 const Nav = (props) => {
     return (
@@ -11,12 +11,16 @@ const Nav = (props) => {
                 <a className="p-4" href="#"
 
                 >Results</a>
-                <a className="p-4" href="#"
-                >Drivers</a>
-                <a className="p-4" href="#"
+                <Link
+                    to={"/driversStandings"}
+                    className="p-4"
+                >Drivers</Link>
+                <a className="p-4" href="/"
                 >Teams</a>
-                <a className="p-4" href="#"
-                >Circuits</a>
+                <Link
+                    className="p-4"
+                    to={"/circuits"}
+                >Circuits</Link>
             </div>
         </nav>
     )
