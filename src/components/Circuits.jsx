@@ -14,7 +14,7 @@ const Circuits = () => {
         return <div>Error: {error}</div>;
     }
     return (
-        <sectio
+        <section
             className="flex gap-2 flex-wrap max-w-screen-2xl m-auto bg-darkGGray p-16">
             {circuits.map((circuit) => (
                 <div
@@ -33,7 +33,7 @@ const Circuits = () => {
                     <p className="text-ferrariRed text-sm">{circuit.lap_record.driver}</p>
                 </div>
             ))}
-        </sectio>
+        </section>
     );
 };
 
